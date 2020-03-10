@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import { BaseNavigator } from './src/navigation';
 
-export default function App() {
+export default App = () => {
   return (
     <View style={{
       flex: 1,
@@ -12,4 +12,4 @@ export default function App() {
       <BaseNavigator/>
     </View>
   );
-}
+};
