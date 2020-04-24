@@ -1,15 +1,13 @@
 {
   "expo": {
-    "name": "tabber-expo",
-    "slug": "TabberExpo",
-    "privacy": "public",
-    "sdkVersion": "36.0.0",
+    "name": "multibar",
+    "slug": "multibar",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
