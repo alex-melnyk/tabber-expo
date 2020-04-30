@@ -1,16 +1,16 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
-import { MultiBarProvider, BottomTabBarWrapper, MultiBarButton } from 'react-native-multibar';
+import { BottomTabBarWrapper, MultiBarButton, MultiBarProvider } from 'react-native-multibar';
 
 import { TouchIcon } from './src/components';
 import { BlankScreen } from './src/screens';
 
-const Tab = createBottomTabNavigator();
-
 export default function App() {
+  const Tab = React.useRef<ReturnType<typeof createBottomTabNavigator>>(createBottomTabNavigator()).current;
+
   return (
     <NavigationContainer>
       <MultiBarProvider
@@ -77,7 +77,13 @@ export default function App() {
         overlayRadius={100}
         initialExtrasVisible={false}
       >
-        <Tab.Navigator tabBar={BottomTabBarWrapper}>
+        <Tab.Navigator
+          tabBar={(props) => (
+            <BottomTabBarWrapper navigation={props.navigation}>
+              <BottomTabBar {...props} />
+            </BottomTabBarWrapper>
+          )}
+        >
           <Tab.Screen
             name="Home"
             component={BlankScreen}
